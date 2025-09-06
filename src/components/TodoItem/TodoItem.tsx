@@ -1,5 +1,6 @@
 import React from 'react';
 import { Todo } from '../../types/Todo';
+import '../../styles/spinner.scss';
 
 interface Props {
   todo: Todo;
@@ -45,10 +46,12 @@ export const TodoItem: React.FC<Props> = ({
         ×
       </button>
 
-      <div data-cy="TodoLoader" className="modal overlay">
-        <div className="modal-background has-background-white-ter" />
-        <div className="loader" />
-      </div>
+      {(todo.loading || deletingIds.includes(todo.id)) && (
+        <div data-cy="TodoLoader" className="modal overlay">
+          <div className="modal-background has-background-white-ter" />
+          <div className="loader" />
+        </div>
+      )}
     </div>
   );
 };

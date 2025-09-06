@@ -93,7 +93,7 @@ export const App: React.FC = () => {
     setNewTodo('');
 
     try {
-      const addedTodo = await addTodo(title, 3474);
+      const addedTodo = await addTodo(title, USER_ID);
 
       setTodos(prev => [...prev, addedTodo]);
       setTempTodo(null);
