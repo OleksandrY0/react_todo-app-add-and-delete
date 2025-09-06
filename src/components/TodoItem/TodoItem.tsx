@@ -7,7 +7,11 @@ interface Props {
   deletingIds: number[];
 }
 
-export const TodoItem: React.FC<Props> = ({ todo, handleDelete, deletingIds }) => {
+export const TodoItem: React.FC<Props> = ({
+  todo,
+  handleDelete,
+  deletingIds,
+}) => {
   return (
     <div
       data-cy="Todo"

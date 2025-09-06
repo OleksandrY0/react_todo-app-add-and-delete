@@ -20,6 +20,8 @@ export const App: React.FC = () => {
   const [adding, setAdding] = useState(false);
   const [deletingIds, setDeletingIds] = useState<number[]>([]);
   const [tempTodo, setTempTodo] = useState<Todo | null>(null);
+
+  const inputRef = useRef<HTMLInputElement>(null);
   // #endregion
 
   // #region Effects
@@ -65,8 +67,6 @@ export const App: React.FC = () => {
     }
   });
 
-  const inputRef = useRef<HTMLInputElement>(null);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -94,6 +94,7 @@ export const App: React.FC = () => {
 
     try {
       const addedTodo = await addTodo(title, 3474);
+
       setTodos(prev => [...prev, addedTodo]);
       setTempTodo(null);
     } catch {
